@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://kit.fontawesome.com/801a90845a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="tablas.css">
+        <style>@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');</style>
+        <title>Aprendamos Matemáticas</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Ejercicios de Matemática</h1>
+            <section class="container-operadores">
+                <button type="button" id ="suma"onclick="btnSumar()">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button type="button" id ="resta" onclick="btnResta()">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+                <button type="button" id ="producto" onclick="btnProducto()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <button type="button" id ="division" onclick="btnDivision()">
+                    <i class="fa-solid fa-divide"></i>
+                </button>
+            </section>
+            <section class="container-operaciones">
+                <span id ="num1"></span>
+                <span id ="operacion"></span>
+                <span id ="num2"></span>
+                <span> = </span>
+                <input type="text" name="respuesta_usuario" id="respuesta_usuario">
+                <button type="submit" id="corregir" onclick="corregir()">Corregir</button>
+            </section>
+            <section id = "msj_correccion">
+
+            </section>
+        </div>
+    
+        <script src="app.js"></script>   
+    </body>
+</htmnl>
