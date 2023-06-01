@@ -8,6 +8,7 @@ let operacion= document.querySelector("#operacion");
 let operacion_actual;
 //en n1 y n2 voy a guardar los numeros aletarios de cada operacion
 let n1 , n2;
+const cuentas= [];
 
 // Esta funcion la creamos luego, cuando tengamos listo los estilos
 function activarBoton(idBoton){
@@ -88,9 +89,6 @@ function nuevaResta() {
     num2.innerHTML = n2;
     //colocamos el cursor en el input
     respuesta_usuario.focus();
-    // console.log(n1)
-    // console.log(n2)
-    // console.log(nn1)
 }
 
 // funcion División
@@ -109,8 +107,6 @@ function nuevaDivision() {
     //generamos dos número aleatorios entre 0 y 99
     n2= parseInt(Math.random()*10);
     n1= n2 * (parseInt(Math.random()*10)+1);
-    console.log(n1)
-    console.log(n2) 
     if(n1===0){
         n1=1;
     }
@@ -122,9 +118,7 @@ function nuevaDivision() {
     num2.innerHTML = n2;
     //colocamos el cursor en el input
     respuesta_usuario.focus();
-    console.log(n1)
-    console.log(n2)
-    console.log (n1/n2)
+    
 }
 
 //funcion  que controla si la respuesta es correcta
@@ -138,16 +132,30 @@ function corregir(){
     //usamos el + para contatenar las cadenas
     let operacion= n1+" "+ operacion_actual+" "+n2;
     solucion= eval(operacion);
+    console.log(n1+" "+ operacion_actual+" "+n2)
+    console.log(solucion);
+    if(respuesta_usuario.value == solucion){
+        alert("MUY BIEN")
+    }else{alert("La respuesta correcta es "+solucion)}
+    cuentas.push(operacion+" = "+solucion);
+    console.log(cuentas)
 
     //creo una elemento i para agregar el icono de correcto o incorrecto
-    var i = document.createElement("i");
+    let icono = document.createElement("i");
     //controlo si coincide lo que el usuario respondio con la solucion
     if(respuesta_usuario.value == solucion){
-        i.className = "fa-regular fa-face-grin";
+        icono.className = "fa-regular fa-face-grin";
     }else{
-        i.className = "fa-regular fa-face-frown";
+        icono.className = "fa-regular fa-face-frown";
     }
-    msj_correccion.appendChild(i);
+    msj_correccion.appendChild(icono);
+
+    // //Vamos a mostrar la solución correcta
+    let cuentaRealizada =document.getElementById("cuenta");
+    let cadaCuenta= document.createElement("div");
+    cadaCuenta.innerHTML =  operacion+" = "+solucion
+    cuentaRealizada.appendChild(cadaCuenta);
+    
 
     //controlo en que tipo de operacion estoy para generar una nueva operacion
     if(operacion_actual == "+"){
