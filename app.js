@@ -79,13 +79,17 @@ function btnResta(){
 function nuevaResta() {
     //generamos dos número aleatorios entre 0 y 99
     n1= parseInt(Math.random()*100);
-    n2= parseInt(Math.random()*100);
-    let nn1;
-    if (n1 <= n2){
-        nn1= n2+2*n1
-    }else nn1= n1;
+    n2= parseInt(Math.random()*70);
+    console.log(n2)
+    while(n1<n2){
+        n2= parseInt(Math.random()*70);
+        console.log(n2)
+    }
+    // if (n1 <= n2){
+    //     n1= n2+2*n2
+    // }
     //asignamos los número a las etiquetas
-    num1.innerHTML = nn1;
+    num1.innerHTML = n1;
     num2.innerHTML = n2;
     //colocamos el cursor en el input
     respuesta_usuario.focus();
@@ -132,13 +136,13 @@ function corregir(){
     //usamos el + para contatenar las cadenas
     let operacion= n1+" "+ operacion_actual+" "+n2;
     solucion= eval(operacion);
-    console.log(n1+" "+ operacion_actual+" "+n2)
-    console.log(solucion);
+    // console.log(n1+" "+ operacion_actual+" "+n2)
+    // console.log(solucion);
     if(respuesta_usuario.value == solucion){
         alert("MUY BIEN")
     }else{alert("La respuesta correcta es "+solucion)}
     cuentas.push(operacion+" = "+solucion);
-    console.log(cuentas)
+    // console.log(cuentas)
 
     //creo una elemento i para agregar el icono de correcto o incorrecto
     let icono = document.createElement("i");
@@ -154,6 +158,7 @@ function corregir(){
     let cuentaRealizada =document.getElementById("cuenta");
     let cadaCuenta= document.createElement("div");
     cadaCuenta.innerHTML =  operacion+" = "+solucion
+    cadaCuenta.className = "cuenta"
     cuentaRealizada.appendChild(cadaCuenta);
     
 

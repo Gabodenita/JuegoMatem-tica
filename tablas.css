@@ -93,7 +93,7 @@ i{
 }
 
 .fa-face-grin {
-    color: rgb(103, 82, 241);
+    color: rgb(57, 19, 194);
     animation: zoom .5s forwards;
 }
 
@@ -105,9 +105,14 @@ i{
         transform: scale(1.5);
     }
 }
-#cuenta{
-    
+.cuenta{
+    display: inline-block;
     width: auto;
     height: auto;
+    border-radius: 20%;
+    border: 2px solid rgb(11, 221, 221); 
+    margin: 8px;
+    padding: 2px;
+    /* background-color: white; */
 
 }
